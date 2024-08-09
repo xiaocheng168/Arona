@@ -1,11 +1,13 @@
-package cc.mcyx.core.loader;
+package cc.mcyx.arona.core.loader;
 
 import cc.mcyx.arona.core.plugin.AronaPlugin;
 import cn.hutool.core.util.ClassUtil;
 
 import java.net.URL;
+import java.util.Enumeration;
 import java.util.LinkedHashSet;
 import java.util.Set;
+import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
 public abstract class ClassUtils {
@@ -23,19 +25,17 @@ public abstract class ClassUtils {
         URL pluginJar = ClassUtil.getLocation(plugin.getClass());
         try {
             JarFile jarFile = new JarFile(pluginJar.getFile());
-            jarFile.stream().forEach((jarEntry) -> {
-                try {
-                    String jarSubFile = jarEntry.getName().replace("/", ".");
-                    boolean b = jarSubFile.endsWith(".class");
-                    if (b) {
-                        Class<?> aClass = Class.forName(jarSubFile.replace(".class", ""));
-                        classs.add(aClass);
-                    }
-                } catch (Throwable ignored) {
+            Enumeration<JarEntry> entries = jarFile.entries();
+            while (entries.hasMoreElements()) {
+                JarEntry jarEntry = entries.nextElement();
+                String jarSubFile = jarEntry.getName().replace("/", ".");
+                boolean b = jarSubFile.endsWith(".class");
+                if (b) {
+                    Class<?> aClass = Class.forName(jarSubFile.replace(".class", ""));
+                    classs.add(aClass);
                 }
-            });
-        } catch (Throwable e) {
-            System.err.println(e.getLocalizedMessage());
+            }
+        } catch (Throwable ignored) {
         }
         return classs;
     }

@@ -8,6 +8,13 @@ public class CommandExecutor {
     private CommandSender commandSender;
     private Boolean aBoolean = false;
 
+    public CommandExecutor(String command, String[] args, CommandSender commandSender, Boolean aBoolean) {
+        this.command = command;
+        this.args = args;
+        this.commandSender = commandSender;
+        this.aBoolean = aBoolean;
+    }
+
     public Boolean getaBoolean() {
         return aBoolean;
     }

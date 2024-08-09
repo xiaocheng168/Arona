@@ -1,22 +1,28 @@
 package cc.mcyx.arona.core.command;
 
+import cc.mcyx.arona.core.loader.ClassUtils;
 import cc.mcyx.arona.core.plugin.AronaPlugin;
 import cc.mcyx.arona.core.command.annotation.Command;
 import cn.hutool.core.util.ClassUtil;
+import cn.hutool.core.util.ObjectUtil;
 import org.bukkit.Bukkit;
+import org.bukkit.command.CommandMap;
+import org.bukkit.command.SimpleCommandMap;
+import org.bukkit.command.defaults.VersionCommand;
 
 import java.lang.reflect.Field;
-import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Set;
 
 public abstract class CommandCore {
     public static void autoRegistrationCommand(AronaPlugin aronaPlugin) {
-        Set<Class<?>> pluginLoadClass = cc.mcyx.core.loader.ClassUtils.getPluginLoadClass(aronaPlugin);
+        Set<Class<?>> pluginLoadClass = ClassUtils.getPluginLoadClass(aronaPlugin);
         for (Class<?> loadClass : pluginLoadClass) {
-            boolean isCommand = loadClass.isAnnotationPresent(Command.class);
-            if (isCommand) {
-                registerCommand(loadClass);
+            // 必须有注解
+            if (loadClass.getAnnotations().length > 0) {
+                Command annotation = loadClass.getAnnotation(Command.class);
+                // 注册命令
+                if (ObjectUtil.isNotNull(annotation)) registerCommand(loadClass, aronaPlugin);
             }
         }
     }
@@ -26,22 +32,28 @@ public abstract class CommandCore {
      *
      * @param c 类
      */
-    public static void registerCommand(Class<?> c) {
+    public static void registerCommand(Class<?> c, AronaPlugin aronaPlugin) {
         Class<?> craftServerClass = scanNmsClass("CraftServer");
-        if (craftServerClass == null) return;
+        if (ObjectUtil.isNull(craftServerClass)) return;
         Object craftServer = craftServerClass.cast(Bukkit.getServer());
         try {
             Field declaredField = craftServerClass.getDeclaredField("commandMap");
             declaredField.setAccessible(true);
-            Object commandMap = declaredField.get(craftServer);
-            Method getKnownCommands = commandMap.getClass().getDeclaredMethod("getKnownCommands");
-            Object invoke = getKnownCommands.invoke(commandMap);
-            HashMap<String, org.bukkit.command.Command> knownCommands = (HashMap<String, org.bukkit.command.Command>) invoke;
-            Command commandInfo = c.getAnnotation(Command.class);
-            knownCommands.put("qwq", new ProxyCommand(commandInfo.value(), c));
+            SimpleCommandMap commandMap = (SimpleCommandMap) declaredField.get(craftServer);
+            Command command = c.getAnnotation(Command.class);
+            commandMap.register(aronaPlugin.getName(), new ProxyCommand(command.value(), c));
         } catch (Throwable e) {
             throw new RuntimeException(e);
         }
+    }
+
+    /**
+     * 取消注册命令
+     *
+     * @param proxyCommand 命令类
+     */
+    public static void unregisterCommand(ProxyCommand proxyCommand) {
+
     }
 
 

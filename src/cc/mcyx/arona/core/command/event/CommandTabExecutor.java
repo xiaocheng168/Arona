@@ -10,6 +10,13 @@ public class CommandTabExecutor {
     private String[] args;
     private List<String> callbacks = Collections.emptyList();
 
+
+    public CommandTabExecutor(CommandSender sender, String[] args, List<String> callbacks) {
+        this.sender = sender;
+        this.args = args;
+        this.callbacks = callbacks;
+    }
+
     public CommandSender getSender() {
         return sender;
     }
