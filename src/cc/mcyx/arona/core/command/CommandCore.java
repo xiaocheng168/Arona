@@ -1,6 +1,6 @@
 package cc.mcyx.arona.core.command;
 
-import cc.mcyx.arona.core.AronaPlugin;
+import cc.mcyx.arona.core.plugin.AronaPlugin;
 import cc.mcyx.arona.core.command.annotation.Command;
 import cn.hutool.core.util.ClassUtil;
 import org.bukkit.Bukkit;

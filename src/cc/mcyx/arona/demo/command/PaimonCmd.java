@@ -1,4 +1,4 @@
-package cc.mcyx.arona.demo;
+package cc.mcyx.arona.demo.command;
 
 import cc.mcyx.arona.core.command.annotation.Command;
 import cc.mcyx.arona.core.command.annotation.CommandEvent;

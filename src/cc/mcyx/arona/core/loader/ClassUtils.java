@@ -1,6 +1,6 @@
 package cc.mcyx.core.loader;
 
-import cc.mcyx.arona.core.AronaPlugin;
+import cc.mcyx.arona.core.plugin.AronaPlugin;
 import cn.hutool.core.util.ClassUtil;
 
 import java.net.URL;
