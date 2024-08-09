@@ -110,10 +110,6 @@ public class ListenerCore extends RegisteredListener implements Listener {
      * 注册Bukkit所有监听器
      */
     private static void bukkitAllSubscribe(AronaPlugin plugin) {
-        // 扫描 bukkit event 事件
-        Set<Class<?>> classes = ClassScanner.scanAllPackageBySuper("org.bukkit.event", Event.class);
-
-
         for (Map.Entry<Class<? extends Event>, HashMap<Method, Object>> classHashMapEntry : METHOD_LIST.entrySet()) {
             for (Map.Entry<Method, Object> methodObjectEntry : classHashMapEntry.getValue().entrySet()) {
                 Method method = methodObjectEntry.getKey();
