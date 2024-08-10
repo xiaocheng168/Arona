@@ -7,7 +7,7 @@ import cc.mcyx.arona.core.command.event.CommandTabExecutor;
 
 import java.util.Arrays;
 
-@Command(value = "qwq", permission = "cc.mcyx")
+@Command(value = "wahaha", permission = "cc.mcyx", aliases = {"awa", "aaa"})
 public class PaimonCmd {
 
     @CommandEvent
@@ -19,4 +19,5 @@ public class PaimonCmd {
     public void awa(CommandTabExecutor commandTabExecutor) {
         System.out.println(Arrays.toString(commandTabExecutor.getArgs()));
     }
+
 }
