@@ -10,20 +10,29 @@ import org.bukkit.command.CommandSender;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
 public class ProxyCommand extends Command {
+    // 命令订阅类
     private final Object commandSubscribe;
-
+    // 命令触发方法
     private Method commandExecutorMethod;
-
+    // 命令Tab触发方法
     private Method commandTabExecutorMethod;
+    // 子命令
+    private final List<ProxyCommand> subCommandList = Collections.emptyList();
 
-    protected ProxyCommand(String name, Class<?> clazz) {
+    protected ProxyCommand(String name, Class<?> clazz, cc.mcyx.arona.core.command.annotation.Command command) {
         super(name);
         try {
             this.commandSubscribe = clazz.newInstance();
+            this.setDescription(command.description());
+            this.setPermission(command.permission());
+            this.setPermissionMessage(command.noPermission());
+            this.setAliases(Arrays.asList(command.aliases()));
             for (Method declaredMethod : this.commandSubscribe.getClass().getDeclaredMethods()) {
                 CommandEvent annotation = declaredMethod.getAnnotation(CommandEvent.class);
                 if (ObjectUtil.isNotNull(annotation) && declaredMethod.getParameterCount() == 1) {
