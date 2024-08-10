@@ -6,7 +6,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.RUNTIME)
-@Target({ElementType.TYPE_USE, ElementType.PACKAGE,ElementType.METHOD})
+@Target({ElementType.TYPE, ElementType.PACKAGE,ElementType.METHOD})
 public @interface Command {
     String value();
 
@@ -15,4 +15,6 @@ public @interface Command {
     String noPermission() default "§c你没有权限执行";
 
     String description() default "";
+
+    String[] aliases() default "";
 }
