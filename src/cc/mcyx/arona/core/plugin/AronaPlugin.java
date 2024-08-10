@@ -1,10 +1,24 @@
 package cc.mcyx.arona.core.plugin;
 
 import cc.mcyx.arona.core.command.CommandCore;
+import cc.mcyx.arona.core.command.ProxyCommand;
 import cc.mcyx.arona.core.listener.ListenerCore;
+import cc.mcyx.arona.core.loader.AronaLoader;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+
 public abstract class AronaPlugin extends JavaPlugin {
+
+    static {
+        // 加载默认依赖
+        AronaLoader.loadDefaultLib();
+    }
+
+    // 插件注册的命令表
+    public final HashMap<String, ProxyCommand> proxyCommands = new LinkedHashMap<>();
+
     @Override
     public final void onLoad() {
         ListenerCore.autoSubscribe(this);
@@ -19,6 +33,7 @@ public abstract class AronaPlugin extends JavaPlugin {
 
     @Override
     public final void onDisable() {
+        CommandCore.unRegisterPluginCommand(this);
         this.onDisabled();
     }
 
