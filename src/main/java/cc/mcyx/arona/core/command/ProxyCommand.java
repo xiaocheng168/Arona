@@ -55,10 +55,11 @@ public class ProxyCommand extends Command {
     @Override
     public boolean execute(CommandSender commandSender, String s, String[] strings) {
         try {
+            if (ObjectUtil.isNull(commandExecutorMethod)) throw new NullPointerException("commandExecutorMethod must not be null");
             CommandExecutor commandExecutor = new CommandExecutor(s, strings, commandSender, false);
             commandExecutorMethod.invoke(commandSubscribe, commandExecutor);
             return commandExecutor.getaBoolean();
-        } catch (IllegalAccessException | InvocationTargetException e) {
+        } catch (IllegalAccessException | InvocationTargetException | NullPointerException e) {
             return false;
         }
     }
@@ -66,10 +67,11 @@ public class ProxyCommand extends Command {
     @Override
     public List<String> tabComplete(CommandSender sender, String alias, String[] args) throws IllegalArgumentException {
         try {
+            if (ObjectUtil.isNull(commandTabExecutorMethod)) throw new NullPointerException("commandTabExecutorMethod must not be null");
             CommandTabExecutor commandTabExecutor = new CommandTabExecutor(sender, args, new LinkedList<>());
             commandTabExecutorMethod.invoke(commandSubscribe, commandTabExecutor);
             return commandTabExecutor.getCallbacks();
-        } catch (IllegalAccessException | InvocationTargetException e) {
+        } catch (IllegalAccessException | InvocationTargetException | NullPointerException e) {
             return super.tabComplete(sender, alias, args);
         }
     }
