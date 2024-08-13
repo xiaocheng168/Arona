@@ -4,9 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2a6a326-dfc8-4e51-a7d4-b9e513d684e4" name="Changes" comment="事件回调处理">
+    <list default="true" id="c2a6a326-dfc8-4e51-a7d4-b9e513d684e4" name="Changes" comment="调整命令处理">
+      <change afterPath="$PROJECT_DIR$/Arona-GUI/src/main/kotlin/cc/mcyx/arona/gui/AGui.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Arona-GUI/src/main/kotlin/cc/mcyx/arona/gui/InventoryUtil.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Arona-NMS/src/main/kotlin/cc/mcyx/arona/nms/PlayerNMS.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cc/mcyx/arona/core/command/ProxyCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cc/mcyx/arona/core/command/ProxyCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +29,9 @@
         <task path="$PROJECT_DIR$">
           <activation />
         </task>
+        <task path="$PROJECT_DIR$/Arona-GUI">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
             <expand>
@@ -39,8 +47,25 @@
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="Arona" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="build" type="c8890929:TasksNode$1" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Arona" type="f1a62948:ProjectNode" />
+                <item name="Arona-NMS" type="2d1252cf:ModuleNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Arona" type="f1a62948:ProjectNode" />
+                <item name="Arona-NMS" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Arona" type="f1a62948:ProjectNode" />
+                <item name="Arona-NMS" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="compileClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
               </path>
             </expand>
             <select />
@@ -48,6 +73,14 @@
         </projects_view>
       </state>
     </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Kotlin Class" />
+        <option value="Kotlin File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -67,20 +100,22 @@
     &quot;Gradle.Arona [clean].executor&quot;: &quot;Run&quot;,
     &quot;Gradle.Arona [jar].executor&quot;: &quot;Run&quot;,
     &quot;Gradle.Arona [shadowJar].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Arona:Arona-GUI [clean].executor&quot;: &quot;Run&quot;,
     &quot;Gradle.Build Arona.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/Desktop/Desktop/Arona/lib&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.14941406&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.20809248&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
@@ -91,11 +126,21 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Desktop\Desktop\Arona\lib" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Desktop\Desktop\Arona\Arona-NMS" />
+      <recent name="E:\Desktop\Desktop\Arona" />
       <recent name="E:\Desktop\Desktop\Arona\src\main\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.Arona [clean]">
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="gradle clean" />
+    </option>
+  </component>
+  <component name="RunManager" selected="Gradle.Arona:Arona-GUI [clean]">
     <configuration name="Arona [assemble]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -162,28 +207,6 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="Arona [jar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="jar" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
-      <method v="2" />
-    </configuration>
     <configuration name="Arona [shadowJar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -206,13 +229,35 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
+    <configuration name="Arona:Arona-GUI [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/Arona-GUI" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="clean" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.Arona:Arona-GUI [clean]" />
         <item itemvalue="Gradle.Arona [clean]" />
         <item itemvalue="Gradle.Arona [build]" />
         <item itemvalue="Gradle.Arona [shadowJar]" />
         <item itemvalue="Gradle.Arona [assemble]" />
-        <item itemvalue="Gradle.Arona [jar]" />
       </list>
     </recent_temporary>
   </component>
@@ -243,7 +288,11 @@
       <workItem from="1723541375712" duration="25000" />
       <workItem from="1723543377241" duration="86000" />
       <workItem from="1723543704724" duration="1084000" />
-      <workItem from="1723545066702" duration="133000" />
+      <workItem from="1723545066702" duration="460000" />
+      <workItem from="1723567642287" duration="75000" />
+      <workItem from="1723567819148" duration="1105000" />
+      <workItem from="1723569154896" duration="1819000" />
+      <workItem from="1723572032940" duration="996000" />
     </task>
     <task id="LOCAL-00001" summary="to gradle">
       <option name="closed" value="true" />
@@ -293,7 +342,15 @@
       <option name="project" value="LOCAL" />
       <updated>1723544789867</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="调整命令处理">
+      <option name="closed" value="true" />
+      <created>1723545502203</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1723545502203</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -305,6 +362,7 @@
     <MESSAGE value="删除了一些无用的东西" />
     <MESSAGE value="filter" />
     <MESSAGE value="事件回调处理" />
-    <option name="LAST_COMMIT_MESSAGE" value="事件回调处理" />
+    <MESSAGE value="调整命令处理" />
+    <option name="LAST_COMMIT_MESSAGE" value="调整命令处理" />
   </component>
 </project>
