@@ -13,6 +13,7 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.RegisteredListener;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
 import java.net.URL;
@@ -42,8 +43,8 @@ public class ListenerCore extends RegisteredListener implements Listener {
             methodObjectHashMap.forEach((k, v) -> {
                 try {
                     k.invoke(v, event);
-                } catch (Throwable e) {
-                    System.err.println(e.getLocalizedMessage());
+                } catch (IllegalAccessException | InvocationTargetException e) {
+                    throw new RuntimeException("事件执行错误", e);
                 }
             });
         }
