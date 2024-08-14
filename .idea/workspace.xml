@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2a6a326-dfc8-4e51-a7d4-b9e513d684e4" name="Changes" comment="调整命令处理">
-      <change afterPath="$PROJECT_DIR$/Arona-GUI/src/main/kotlin/cc/mcyx/arona/gui/AGui.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Arona-GUI/src/main/kotlin/cc/mcyx/arona/gui/InventoryUtil.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Arona-NMS/src/main/kotlin/cc/mcyx/arona/nms/PlayerNMS.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+    <list default="true" id="c2a6a326-dfc8-4e51-a7d4-b9e513d684e4" name="Changes" comment="增加新模块（空）">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Arona-NMS/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/Arona-NMS/build.gradle.kts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -293,6 +288,11 @@
       <workItem from="1723567819148" duration="1105000" />
       <workItem from="1723569154896" duration="1819000" />
       <workItem from="1723572032940" duration="996000" />
+      <workItem from="1723573041781" duration="1053000" />
+      <workItem from="1723623037270" duration="2450000" />
+      <workItem from="1723644589975" duration="49000" />
+      <workItem from="1723644759798" duration="34000" />
+      <workItem from="1723644828089" duration="140000" />
     </task>
     <task id="LOCAL-00001" summary="to gradle">
       <option name="closed" value="true" />
@@ -350,7 +350,15 @@
       <option name="project" value="LOCAL" />
       <updated>1723545502203</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="增加新模块（空）">
+      <option name="closed" value="true" />
+      <created>1723573065701</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1723573065701</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -363,6 +371,7 @@
     <MESSAGE value="filter" />
     <MESSAGE value="事件回调处理" />
     <MESSAGE value="调整命令处理" />
-    <option name="LAST_COMMIT_MESSAGE" value="调整命令处理" />
+    <MESSAGE value="增加新模块（空）" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加新模块（空）" />
   </component>
 </project>
