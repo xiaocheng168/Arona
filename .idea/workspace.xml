@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2a6a326-dfc8-4e51-a7d4-b9e513d684e4" name="Changes" comment="增加扫描所有插件的事件">
-      <change afterPath="$PROJECT_DIR$/Arona-Config/src/main/kotlin/PaimonConfig.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Arona-Config/src/main/kotlin/WatcherImpl.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+    <list default="true" id="c2a6a326-dfc8-4e51-a7d4-b9e513d684e4" name="Changes" comment="增加配置文件处理模块">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Arona-GUI/src/main/kotlin/cc/mcyx/arona/gui/AGui.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Arona-GUI/src/main/kotlin/cc/mcyx/arona/gui/InventoryUtil.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Arona-NMS/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/Arona-NMS/build.gradle.kts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,13 +95,13 @@
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "E:/Desktop/Desktop/Arona/Arona-Config/src/main/kotlin",
+    "last_opened_file_path": "E:/Desktop/Desktop/Arona/Arona-NMS/src/main/kotlin/cc/mcyx/arona/nms",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Artifacts",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.14941406",
     "project.structure.side.proportion": "0.20809248",
     "settings.editor.selected.configurable": "preferences.lookFeel",
@@ -116,10 +115,13 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Desktop\Desktop\Arona\Arona-NMS\src\main\kotlin\cc\mcyx\arona\nms" />
+      <recent name="E:\Desktop\Desktop\Arona\Arona-GUI\src\main\kotlin" />
       <recent name="E:\Desktop\Desktop\Arona\Arona-Config\src\main\kotlin" />
       <recent name="E:\Desktop\Desktop\Arona\lib" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Desktop\Desktop\Arona\Arona-NMS\src\main\kotlin\cc\mcyx\arona\nms" />
       <recent name="E:\Desktop\Desktop\Arona\Arona-NMS" />
       <recent name="E:\Desktop\Desktop\Arona" />
       <recent name="E:\Desktop\Desktop\Arona\src\main\resources" />
@@ -295,7 +297,7 @@
       <workItem from="1723807307109" duration="413000" />
       <workItem from="1723807881039" duration="2000" />
       <workItem from="1723810854890" duration="5005000" />
-      <workItem from="1723818225518" duration="398000" />
+      <workItem from="1723818225518" duration="1595000" />
     </task>
     <task id="LOCAL-00001" summary="to gradle">
       <option name="closed" value="true" />
@@ -377,7 +379,15 @@
       <option name="project" value="LOCAL" />
       <updated>1723815805471</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="增加配置文件处理模块">
+      <option name="closed" value="true" />
+      <created>1723818697356</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1723818697356</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -403,6 +413,7 @@
     <MESSAGE value="调整命令处理" />
     <MESSAGE value="增加新模块（空）" />
     <MESSAGE value="增加扫描所有插件的事件" />
-    <option name="LAST_COMMIT_MESSAGE" value="增加扫描所有插件的事件" />
+    <MESSAGE value="增加配置文件处理模块" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加配置文件处理模块" />
   </component>
 </project>

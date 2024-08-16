@@ -14,7 +14,9 @@ repositories {
 
 dependencies {
     compileOnly("io.papermc.paper:paper-api:1.20.1-R0.1-SNAPSHOT")
+    compileOnly("cn.hutool:hutool-all:5.8.29")
     implementation(fileTree("lib"))
+    implementation(project(":"))
 }
 kotlin {
     jvmToolchain(17)
