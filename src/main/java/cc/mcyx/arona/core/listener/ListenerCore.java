@@ -1,9 +1,11 @@
 package cc.mcyx.arona.core.listener;
 
+import cc.mcyx.arona.core.loader.ClassUtils;
 import cc.mcyx.arona.core.plugin.AronaPlugin;
 import cc.mcyx.arona.core.listener.annotation.SubscribeEvent;
 import cn.hutool.core.lang.ClassScanner;
 import cn.hutool.core.util.ClassUtil;
+import org.bukkit.Bukkit;
 import org.bukkit.event.Event;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.HandlerList;
@@ -11,7 +13,9 @@ import org.bukkit.event.Listener;
 import org.bukkit.plugin.EventExecutor;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.RegisteredListener;
+import org.bukkit.plugin.java.JavaPlugin;
 
+import java.io.File;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -56,7 +60,9 @@ public class ListenerCore extends RegisteredListener implements Listener {
      * @param plugin 插件
      */
     public static void autoSubscribe(AronaPlugin plugin) {
-        // 先扫描有注册哪些事件
+        // 扫描服务器全部可注册事件
+        scanServerRegisterEvent();
+        // 扫描插件有订阅哪些事件
         scanPaimonEvent(plugin);
         // 再将扫描出来的注册到监听器里
         bukkitAllSubscribe(plugin);
@@ -108,7 +114,7 @@ public class ListenerCore extends RegisteredListener implements Listener {
     }
 
     /**
-     * 注册Bukkit所有监听器
+     * 对应注册插件监听的所有事件
      */
     private static void bukkitAllSubscribe(AronaPlugin plugin) {
         for (Map.Entry<Class<? extends Event>, HashMap<Method, Object>> classHashMapEntry : METHOD_LIST.entrySet()) {
@@ -134,11 +140,44 @@ public class ListenerCore extends RegisteredListener implements Listener {
         }
     }
 
-    private static Class<?> getEventClass(Class<?> scanClass) {
-        Set<Class<?>> classes = ClassScanner.scanAllPackage("org.bukkit.event", aClass -> aClass == scanClass);
-        if (!classes.isEmpty()) {
-            return (Class<?>) classes.toArray()[0];
+    private static final HashMap<Class<?>, Class<?>> EVENT_CLASS_MAP = new LinkedHashMap<>();
+
+
+    /**
+     * 扫描服务器全部插件的事件
+     */
+    private static void scanServerRegisterEvent() {
+        // 如果不是空的，则不再扫描
+        if (!EVENT_CLASS_MAP.isEmpty()) return;
+        // 扫描 Bukkit 内置事件
+        ClassScanner.scanAllPackage("org.bukkit.event", aClass -> true).forEach(clazz -> EVENT_CLASS_MAP.put(clazz, clazz));
+        // 扫描服务器全部插件
+        for (Plugin plugin : Bukkit.getPluginManager().getPlugins()) {
+            JavaPlugin javaPlugin = (JavaPlugin) plugin;
+            Set<Class<?>> pluginLoadClass = ClassUtils.getJarClass(javaPlugin);
+            pluginLoadClass.forEach((aClass -> EVENT_CLASS_MAP.put(aClass, aClass)));
         }
-        throw new RuntimeException("No event class found");
+    }
+
+    /**
+     * 判断这个类以及继承类是否为 Event
+     * @param clazz 类
+     * @return 是否为 Event 事件类
+     */
+    public static boolean isSupperEvent(Class<?> clazz) {
+        if (clazz == Object.class) return false;
+        if (clazz.getSuperclass() == org.bukkit.event.Event.class) return true;
+        return isSupperEvent(clazz.getSuperclass());
+    }
+
+    /**
+     * 获取事件类
+     * @param scanClass 事件
+     * @return 返回该事件，如果没有异常
+     */
+    private static Class<?> getEventClass(Class<?> scanClass) {
+        Class<?> aClass = EVENT_CLASS_MAP.get(scanClass);
+        if (aClass != null) return aClass;
+        throw new RuntimeException("未知订阅事件类 " + scanClass);
     }
 }
