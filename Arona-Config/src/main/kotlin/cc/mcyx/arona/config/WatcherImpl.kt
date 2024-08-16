@@ -1,4 +1,4 @@
-package cc.mcyx.paimon.common.config
+package cc.mcyx.arona.config
 
 import cn.hutool.core.io.watch.Watcher
 import java.nio.file.Path

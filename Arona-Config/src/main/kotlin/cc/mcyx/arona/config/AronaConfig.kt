@@ -1,4 +1,4 @@
-package cc.mcyx.paimon.common.config
+package cc.mcyx.arona.config
 
 import cc.mcyx.arona.core.plugin.AronaPlugin
 import cn.hutool.core.io.watch.WatchMonitor
