@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2a6a326-dfc8-4e51-a7d4-b9e513d684e4" name="Changes" comment="GUI+NMS预备新UI写法">
+    <list default="true" id="c2a6a326-dfc8-4e51-a7d4-b9e513d684e4" name="Changes" comment="Arona PNG!">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
@@ -296,7 +296,7 @@
       <workItem from="1723807881039" duration="2000" />
       <workItem from="1723810854890" duration="5005000" />
       <workItem from="1723818225518" duration="1919000" />
-      <workItem from="1723820216068" duration="1540000" />
+      <workItem from="1723820216068" duration="1603000" />
     </task>
     <task id="LOCAL-00001" summary="to gradle">
       <option name="closed" value="true" />
@@ -394,7 +394,23 @@
       <option name="project" value="LOCAL" />
       <updated>1723819841477</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Arona PNG!">
+      <option name="closed" value="true" />
+      <created>1723821764402</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1723821764402</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Arona PNG!">
+      <option name="closed" value="true" />
+      <created>1723821785073</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1723821785073</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -422,6 +438,7 @@
     <MESSAGE value="增加扫描所有插件的事件" />
     <MESSAGE value="增加配置文件处理模块" />
     <MESSAGE value="GUI+NMS预备新UI写法" />
-    <option name="LAST_COMMIT_MESSAGE" value="GUI+NMS预备新UI写法" />
+    <MESSAGE value="Arona PNG!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Arona PNG!" />
   </component>
 </project>

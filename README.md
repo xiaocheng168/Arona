@@ -1,6 +1,6 @@
 # ARONA 阿诺娜
 
-<div style="text-align: center">
+<div align="center" style="text-align: center">
     <img src="arona.png" alt="Arona~"  style="border-radius: 25px;">
 </div>
 
