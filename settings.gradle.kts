@@ -10,3 +10,4 @@ plugins {
 rootProject.name = "Arona"
 include("Arona-GUI")
 include("Arona-NMS")
+include("Arona-Config")
