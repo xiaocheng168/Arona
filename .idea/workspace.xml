@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2a6a326-dfc8-4e51-a7d4-b9e513d684e4" name="Changes" comment="增加配置文件处理模块">
+    <list default="true" id="c2a6a326-dfc8-4e51-a7d4-b9e513d684e4" name="Changes" comment="GUI+NMS预备新UI写法">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arona-GUI/src/main/kotlin/cc/mcyx/arona/gui/AGui.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arona-GUI/src/main/kotlin/cc/mcyx/arona/gui/InventoryUtil.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arona-NMS/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/Arona-NMS/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,38 +79,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Gradle.Arona [assemble].executor": "Run",
-    "Gradle.Arona [build].executor": "Run",
-    "Gradle.Arona [clean].executor": "Run",
-    "Gradle.Arona [jar].executor": "Run",
-    "Gradle.Arona [shadowJar].executor": "Run",
-    "Gradle.Arona:Arona-GUI [clean].executor": "Run",
-    "Gradle.Build Arona.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "E:/Desktop/Desktop/Arona/Arona-NMS/src/main/kotlin/cc/mcyx/arona/nms",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.14941406",
-    "project.structure.side.proportion": "0.20809248",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.Arona [assemble].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Arona [build].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Arona [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Arona [jar].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Arona [shadowJar].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Arona:Arona-GUI [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Build Arona.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/Desktop/Desktop/Arona/Arona-NMS/src/main/kotlin/cc/mcyx/arona/nms&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.14941406&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.20809248&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "kotlin-gradle-user-dirs": [
-      "C:\\Users\\35133\\.gradle"
+  &quot;keyToStringList&quot;: {
+    &quot;kotlin-gradle-user-dirs&quot;: [
+      &quot;C:\\Users\\35133\\.gradle&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\Desktop\Desktop\Arona\Arona-NMS\src\main\kotlin\cc\mcyx\arona\nms" />
@@ -297,7 +295,8 @@
       <workItem from="1723807307109" duration="413000" />
       <workItem from="1723807881039" duration="2000" />
       <workItem from="1723810854890" duration="5005000" />
-      <workItem from="1723818225518" duration="1595000" />
+      <workItem from="1723818225518" duration="1919000" />
+      <workItem from="1723820216068" duration="1540000" />
     </task>
     <task id="LOCAL-00001" summary="to gradle">
       <option name="closed" value="true" />
@@ -387,7 +386,15 @@
       <option name="project" value="LOCAL" />
       <updated>1723818697356</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="GUI+NMS预备新UI写法">
+      <option name="closed" value="true" />
+      <created>1723819841477</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1723819841477</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -414,6 +421,7 @@
     <MESSAGE value="增加新模块（空）" />
     <MESSAGE value="增加扫描所有插件的事件" />
     <MESSAGE value="增加配置文件处理模块" />
-    <option name="LAST_COMMIT_MESSAGE" value="增加配置文件处理模块" />
+    <MESSAGE value="GUI+NMS预备新UI写法" />
+    <option name="LAST_COMMIT_MESSAGE" value="GUI+NMS预备新UI写法" />
   </component>
 </project>
