@@ -60,6 +60,7 @@ public abstract class ClassUtils {
                 if (clazz.endsWith(".class")) {
                     try {
                         String dClass = clazz.replace(".class", "");
+                        if (dClass.startsWith("kotlin")) continue; // 过滤 kotlin
                         Class<?> aClass = Class.forName(dClass, false, javaPlugin.getClass().getClassLoader());
                         if (ListenerCore.isSupperEvent(aClass)) clazzs.add(Class.forName(dClass));
                     } catch (Throwable ignored) {
