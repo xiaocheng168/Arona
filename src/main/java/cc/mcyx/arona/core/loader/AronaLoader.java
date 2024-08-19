@@ -24,6 +24,8 @@ public final class AronaLoader {
         try {
             loadCloudLib(new LibInfo("cn.hutool", "hutool-all", "5.8.29", LibInfo.Source.ALIBABA));
             loadCloudLib(new LibInfo("org.jetbrains.kotlin", "kotlin-stdlib", "2.0.0", LibInfo.Source.ALIBABA));
+            loadCloudLib(new LibInfo("org.jetbrains.kotlin", "kotlin-reflect", "2.0.0", LibInfo.Source.ALIBABA));
+            loadCloudLib(new LibInfo("org.jetbrains.kotlin", "kotlin-stdlib-common", "2.0.0", LibInfo.Source.ALIBABA));
         } catch (Throwable e) {
             throw new RuntimeException(e);
         }
