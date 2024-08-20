@@ -31,8 +31,20 @@ public final class AronaLoader {
         }
     }
 
+    /**
+     * 加载来自 Maven 仓库中的依赖
+     * @param libInfo 依赖信息
+     */
     public static void loadCloudLib(LibInfo libInfo) {
-        LibInfo download = libInfo.downloadAndLoad();
+        libInfo.downloadAndLoad();
+    }
+
+    /**
+     * 加载一个 Cloud URL 地址的 Lib
+     * @param url 下载绝对路径
+     */
+    public static void loadCloudLib(String url) {
+        new LibInfo(url).downloadAndLoad();
     }
 
     public static Field scanUcp(Class<?> c) {
