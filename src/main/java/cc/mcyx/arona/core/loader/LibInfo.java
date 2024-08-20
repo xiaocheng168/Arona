@@ -12,13 +12,24 @@ public class LibInfo {
     private final String artifactId;
     private final String version;
     private final Source source;
-
+    private final Integer type;
+    private String url;
 
     public LibInfo(String groupId, String artifactId, String version, Source source) {
         this.groupId = groupId;
         this.artifactId = artifactId;
         this.version = version;
         this.source = source;
+        this.type = 1;
+    }
+
+    public LibInfo(String url) {
+        this.groupId = "";
+        this.artifactId = "";
+        this.version = "";
+        this.source = null;
+        this.type = 2;
+        this.url = url;
     }
 
 
@@ -40,10 +51,13 @@ public class LibInfo {
 
     /**
      * 下载该依赖并且加载
-     * @return 返回依赖实例
      */
-    public LibInfo downloadAndLoad() {
-        String downloadURL = source.url + "/" + this.getGroupId().replace(".", "/") + "/" + this.getArtifactId() + "/" + this.getVersion() + "/" + (this.getArtifactId() + "-" + this.getVersion() + ".jar");
+    public void downloadAndLoad() {
+        String downloadURL = "";
+        if (type == 1 && source != null) {
+            downloadURL = source.url + "/" + this.getGroupId().replace(".", "/") + "/" + this.getArtifactId() + "/" + this.getVersion() + "/" + (this.getArtifactId() + "-" + this.getVersion() + ".jar");
+        }
+        if (type == 2) downloadURL = this.url;
         try {
             URL url = new URL(downloadURL);
             URLConnection urlConnection = url.openConnection();
@@ -52,6 +66,11 @@ public class LibInfo {
             InputStream inputStream = connection.getInputStream();
             byte[] bytes = new byte[1024];
             File jar = new File(AronaLoader.ARONA_LIB_DIR, new File(url.getFile()).getName());
+            // 如果已经有这个jar了，直接加载
+            if (jar.isFile()) {
+                AronaLoader.loadJar(jar.toURI().toURL());
+                return;
+            }
             FileOutputStream fileOutputStream = new FileOutputStream(jar);
             int read;
             while ((read = inputStream.read(bytes)) != -1) {
@@ -64,7 +83,6 @@ public class LibInfo {
         } catch (Throwable e) {
             e.printStackTrace();
         }
-        return this;
     }
 
     public enum Source {
