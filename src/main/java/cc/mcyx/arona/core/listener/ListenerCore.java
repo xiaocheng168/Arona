@@ -43,7 +43,7 @@ public class ListenerCore extends RegisteredListener implements Listener {
      */
     public static void callEventPaimon(Event event) {
         HashMap<Method, Object> methodObjectHashMap = METHOD_LIST.get(event.getClass());
-        if (methodObjectHashMap != null) {
+        if (methodObjectHashMap != null && !methodObjectHashMap.isEmpty()) {
             methodObjectHashMap.forEach((k, v) -> {
                 try {
                     k.invoke(v, event);

@@ -1,12 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="Arona:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2a6a326-dfc8-4e51-a7d4-b9e513d684e4" name="Changes" comment="Arona PNG!">
-      <change beforePath="$PROJECT_DIR$/Arona-Config/src/main/kotlin/AronaConfig.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Arona-Config/src/main/kotlin/AronaConfig.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arona-Config/src/main/kotlin/WatcherImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Arona-Config/src/main/kotlin/WatcherImpl.kt" afterDir="false" />
+    <list default="true" id="c2a6a326-dfc8-4e51-a7d4-b9e513d684e4" name="Changes" comment="自定义下载 url">
+      <change afterPath="$PROJECT_DIR$/src/main/java/cc/mcyx/arona/core/AronaCore.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Arona-Config/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/Arona-Config/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Arona-GUI/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/Arona-GUI/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Arona-NMS/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/Arona-NMS/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cc/mcyx/arona/core/listener/ListenerCore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cc/mcyx/arona/core/listener/ListenerCore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cc/mcyx/arona/core/plugin/AronaPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cc/mcyx/arona/core/plugin/AronaPlugin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,30 +41,15 @@
         <task path="$PROJECT_DIR$/Arona-GUI">
           <activation />
         </task>
+        <task path="$PROJECT_DIR$/Arona-NMS">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
             <expand>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="Arona" type="f1a62948:ProjectNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="Arona" type="f1a62948:ProjectNode" />
-                <item name="Arona-Config" type="2d1252cf:ModuleNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="Arona" type="f1a62948:ProjectNode" />
-                <item name="Arona-Config" type="2d1252cf:ModuleNode" />
-                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="Arona" type="f1a62948:ProjectNode" />
-                <item name="Arona-Config" type="2d1252cf:ModuleNode" />
-                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
-                <item name="compileClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
               </path>
             </expand>
             <select />
@@ -62,14 +61,21 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Kotlin Class" />
         <option value="Kotlin File" />
+        <option value="Kotlin Class" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="InvalidFacetManager">
+    <ignored-facets>
+      <facet id="Arona.Arona-Config.main/invalid/Minecraft" />
+      <facet id="Arona.Arona-NMS.test/invalid/Minecraft" />
+      <facet id="Arona.main/invalid/Minecraft" />
+    </ignored-facets>
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
@@ -88,12 +94,14 @@
     &quot;Gradle.Arona [shadowJar].executor&quot;: &quot;Run&quot;,
     &quot;Gradle.Arona:Arona-GUI [clean].executor&quot;: &quot;Run&quot;,
     &quot;Gradle.Build Arona.executor&quot;: &quot;Run&quot;,
+    &quot;JAR Application.1.20.1 DEBUG.executor&quot;: &quot;Run&quot;,
+    &quot;JAR Application.Cat 1.12.2 DEBUG.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/Desktop/Desktop/Arona/Arona-NMS/src/main/kotlin/cc/mcyx/arona/nms&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/Desktop/Desktop/MinecraftServers/CatServer1.12.2/catserver.jar&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -123,6 +131,10 @@
       <recent name="E:\Desktop\Desktop\Arona\Arona-NMS" />
       <recent name="E:\Desktop\Desktop\Arona" />
       <recent name="E:\Desktop\Desktop\Arona\src\main\resources" />
+    </key>
+    <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="cc.mcyx.arona.core" />
+      <recent name="cc.mcyx.arona.config" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -180,7 +192,7 @@
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
+        <option name="scriptParameters" value="" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -241,6 +253,40 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
+    <configuration name="1.20.1 DEBUG" type="JarApplication">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/../MinecraftServers/spigot1.20.1/spigot-1.20.1.jar" />
+      <option name="PROGRAM_PARAMETERS" value="nogui" />
+      <option name="WORKING_DIRECTORY" value="E:\Desktop\Desktop\MinecraftServers\spigot1.20.1" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="ALTERNATIVE_JRE_PATH" value="17" />
+      <module name="Arona" />
+      <method v="2">
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="Arona:jar" />
+        </option>
+      </method>
+    </configuration>
+    <configuration name="Cat 1.12.2 DEBUG" type="JarApplication">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/../MinecraftServers/CatServer1.12.2/catserver.jar" />
+      <option name="PROGRAM_PARAMETERS" value="nogui" />
+      <option name="WORKING_DIRECTORY" value="E:\Desktop\Desktop\MinecraftServers\CatServer1.12.2" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+      <method v="2">
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="Arona:jar" />
+        </option>
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Gradle.Arona [assemble]" />
+      <item itemvalue="Gradle.Arona [build]" />
+      <item itemvalue="Gradle.Arona [clean]" />
+      <item itemvalue="Gradle.Arona [shadowJar]" />
+      <item itemvalue="Gradle.Arona:Arona-GUI [clean]" />
+      <item itemvalue="JAR Application.Cat 1.12.2 DEBUG" />
+      <item itemvalue="JAR Application.1.20.1 DEBUG" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.Arona [clean]" />
@@ -296,7 +342,46 @@
       <workItem from="1723807881039" duration="2000" />
       <workItem from="1723810854890" duration="5005000" />
       <workItem from="1723818225518" duration="1919000" />
-      <workItem from="1723820216068" duration="2417000" />
+      <workItem from="1723820216068" duration="3881000" />
+      <workItem from="1723832159728" duration="23000" />
+      <workItem from="1723879339515" duration="81000" />
+      <workItem from="1723998231479" duration="361000" />
+      <workItem from="1724000506972" duration="101000" />
+      <workItem from="1724001990218" duration="1370000" />
+      <workItem from="1724033569828" duration="1113000" />
+      <workItem from="1724034697146" duration="1000" />
+      <workItem from="1724066227913" duration="1194000" />
+      <workItem from="1724068710241" duration="6000" />
+      <workItem from="1724079794602" duration="8000" />
+      <workItem from="1724084867912" duration="6000" />
+      <workItem from="1724085021147" duration="7000" />
+      <workItem from="1724085032649" duration="1189000" />
+      <workItem from="1724089477689" duration="447000" />
+      <workItem from="1724106572943" duration="842000" />
+      <workItem from="1724159529107" duration="91000" />
+      <workItem from="1724160021796" duration="2510000" />
+      <workItem from="1724416445491" duration="6000" />
+      <workItem from="1724691204901" duration="267000" />
+      <workItem from="1724691486826" duration="265000" />
+      <workItem from="1724760151994" duration="720000" />
+      <workItem from="1724828314281" duration="360000" />
+      <workItem from="1724828940261" duration="1748000" />
+      <workItem from="1724872398672" duration="4000" />
+      <workItem from="1724954128411" duration="5000" />
+      <workItem from="1725078546439" duration="23000" />
+      <workItem from="1726422039727" duration="5000" />
+      <workItem from="1726750337907" duration="86000" />
+      <workItem from="1727079412642" duration="10000" />
+      <workItem from="1727320292241" duration="14000" />
+      <workItem from="1727762133314" duration="47000" />
+      <workItem from="1727773737152" duration="45000" />
+      <workItem from="1727867663382" duration="4000" />
+      <workItem from="1728461692882" duration="1336000" />
+      <workItem from="1729350437061" duration="308000" />
+      <workItem from="1729351363540" duration="188000" />
+      <workItem from="1729351807655" duration="544000" />
+      <workItem from="1729352365075" duration="258000" />
+      <workItem from="1729352628757" duration="334000" />
     </task>
     <task id="LOCAL-00001" summary="to gradle">
       <option name="closed" value="true" />
@@ -418,7 +503,55 @@
       <option name="project" value="LOCAL" />
       <updated>1723821829709</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="更改了包">
+      <option name="closed" value="true" />
+      <created>1723822725285</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1723822725285</updated>
+    </task>
+    <task id="LOCAL-00017" summary="过滤 kotlin">
+      <option name="closed" value="true" />
+      <created>1724002413908</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1724002413908</updated>
+    </task>
+    <task id="LOCAL-00018" summary="增加默认加载依赖...">
+      <option name="closed" value="true" />
+      <created>1724067412645</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1724067412646</updated>
+    </task>
+    <task id="LOCAL-00019" summary="给玩家发送数据包">
+      <option name="closed" value="true" />
+      <created>1724161854394</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1724161854394</updated>
+    </task>
+    <task id="LOCAL-00020" summary="自定义下载 url">
+      <option name="closed" value="true" />
+      <created>1724161867076</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1724161867076</updated>
+    </task>
+    <task id="LOCAL-00021" summary="自定义下载 url">
+      <option name="closed" value="true" />
+      <created>1724161873042</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1724161873042</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -447,6 +580,11 @@
     <MESSAGE value="增加配置文件处理模块" />
     <MESSAGE value="GUI+NMS预备新UI写法" />
     <MESSAGE value="Arona PNG!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Arona PNG!" />
+    <MESSAGE value="更改了包" />
+    <MESSAGE value="过滤 kotlin" />
+    <MESSAGE value="增加默认加载依赖..." />
+    <MESSAGE value="给玩家发送数据包" />
+    <MESSAGE value="自定义下载 url" />
+    <option name="LAST_COMMIT_MESSAGE" value="自定义下载 url" />
   </component>
 </project>
