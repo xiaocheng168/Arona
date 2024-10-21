@@ -1,5 +1,7 @@
 package cc.mcyx.arona.core.loader;
 
+import cc.mcyx.arona.core.plugin.AronaPlugin;
+import org.bukkit.plugin.java.JavaPlugin;
 import sun.misc.Unsafe;
 
 import java.io.File;
@@ -7,7 +9,9 @@ import java.lang.invoke.MethodHandle;
 import java.lang.invoke.MethodHandles;
 import java.lang.invoke.MethodType;
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.net.URL;
+import java.net.URLClassLoader;
 
 public final class AronaLoader {
 
@@ -33,6 +37,7 @@ public final class AronaLoader {
 
     /**
      * 加载来自 Maven 仓库中的依赖
+     *
      * @param libInfo 依赖信息
      */
     public static void loadCloudLib(LibInfo libInfo) {
@@ -41,6 +46,7 @@ public final class AronaLoader {
 
     /**
      * 加载一个 Cloud URL 地址的 Lib
+     *
      * @param url 下载绝对路径
      */
     public static void loadCloudLib(String url) {
@@ -53,7 +59,7 @@ public final class AronaLoader {
         } catch (Throwable e) {
             if (c.getSuperclass() != Object.class) scanUcp(c.getSuperclass());
         }
-        throw new RuntimeException("没有找到 UCP " + c);
+        return null;
     }
 
     /**
@@ -67,8 +73,12 @@ public final class AronaLoader {
         theUnsafe.setAccessible(true);
         Unsafe unSafe = (Unsafe) theUnsafe.get(null);
 
-        ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+        ClassLoader classLoader = JavaPlugin.class.getClassLoader();
         Field ucp = scanUcp(classLoader.getClass());
+        if (ucp == null) {
+            classLoader = ClassLoader.getSystemClassLoader();
+            ucp = scanUcp(classLoader.getClass());
+        }
         Object object = unSafe.getObject(classLoader, unSafe.objectFieldOffset(ucp));
 
         Field implLookup = MethodHandles.Lookup.class.getDeclaredField("IMPL_LOOKUP");
@@ -76,6 +86,6 @@ public final class AronaLoader {
         MethodHandle addURL = lookup.findVirtual(object.getClass(), "addURL", MethodType.methodType(void.class, URL.class));
         addURL.invoke(object, jarFile);
 
-        System.out.printf("[ARONA] %s\n", "Load lib" + jarFile.getPath());
+        System.out.println(String.format("[ARONA] %s", "Load lib" + jarFile.getPath()));
     }
 }

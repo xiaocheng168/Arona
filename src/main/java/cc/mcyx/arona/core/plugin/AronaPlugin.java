@@ -12,7 +12,6 @@ import java.util.LinkedHashMap;
 public abstract class AronaPlugin extends JavaPlugin {
 
     static {
-        System.out.println("qwq");
         // 加载默认依赖
         AronaLoader.loadDefaultLib();
     }

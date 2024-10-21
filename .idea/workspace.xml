@@ -9,18 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2a6a326-dfc8-4e51-a7d4-b9e513d684e4" name="Changes" comment="自定义下载 url">
-      <change afterPath="$PROJECT_DIR$/src/main/java/cc/mcyx/arona/core/AronaCore.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+    <list default="true" id="c2a6a326-dfc8-4e51-a7d4-b9e513d684e4" name="Changes" comment="jvm 降到 8,为了更多插件的开发">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arona-Config/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/Arona-Config/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arona-GUI/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/Arona-GUI/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Arona-NMS/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/Arona-NMS/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cc/mcyx/arona/core/listener/ListenerCore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cc/mcyx/arona/core/listener/ListenerCore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cc/mcyx/arona/core/loader/AronaLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cc/mcyx/arona/core/loader/AronaLoader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cc/mcyx/arona/core/plugin/AronaPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cc/mcyx/arona/core/plugin/AronaPlugin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +43,23 @@
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="Arona" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Arona" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Arona" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Arona" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="shadow" type="c8890929:TasksNode$1" />
               </path>
             </expand>
             <select />
@@ -89,6 +99,7 @@
   &quot;keyToString&quot;: {
     &quot;Gradle.Arona [assemble].executor&quot;: &quot;Run&quot;,
     &quot;Gradle.Arona [build].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Arona [classes].executor&quot;: &quot;Run&quot;,
     &quot;Gradle.Arona [clean].executor&quot;: &quot;Run&quot;,
     &quot;Gradle.Arona [jar].executor&quot;: &quot;Run&quot;,
     &quot;Gradle.Arona [shadowJar].executor&quot;: &quot;Run&quot;,
@@ -107,7 +118,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.14941406&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.20809248&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
@@ -143,7 +154,7 @@
     </option>
   </component>
   <component name="RunManager" selected="Gradle.Arona [clean]">
-    <configuration name="Arona [assemble]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="Arona [classes]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -154,29 +165,7 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="assemble" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="Arona [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="build" />
+            <option value="classes" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -192,13 +181,35 @@
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
+        <option name="scriptParameters" />
         <option name="taskDescriptions">
           <list />
         </option>
         <option name="taskNames">
           <list>
             <option value="clean" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="Arona [jar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="jar" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -221,28 +232,6 @@
         <option name="taskNames">
           <list>
             <option value="shadowJar" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="Arona:Arona-GUI [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/Arona-GUI" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="clean" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -279,21 +268,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Gradle.Arona [assemble]" />
-      <item itemvalue="Gradle.Arona [build]" />
+      <item itemvalue="Gradle.Arona [classes]" />
       <item itemvalue="Gradle.Arona [clean]" />
+      <item itemvalue="Gradle.Arona [jar]" />
       <item itemvalue="Gradle.Arona [shadowJar]" />
-      <item itemvalue="Gradle.Arona:Arona-GUI [clean]" />
-      <item itemvalue="JAR Application.Cat 1.12.2 DEBUG" />
       <item itemvalue="JAR Application.1.20.1 DEBUG" />
+      <item itemvalue="JAR Application.Cat 1.12.2 DEBUG" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.Arona [clean]" />
         <item itemvalue="Gradle.Arona [shadowJar]" />
-        <item itemvalue="Gradle.Arona:Arona-GUI [clean]" />
-        <item itemvalue="Gradle.Arona [build]" />
-        <item itemvalue="Gradle.Arona [assemble]" />
+        <item itemvalue="Gradle.Arona [jar]" />
+        <item itemvalue="Gradle.Arona [classes]" />
       </list>
     </recent_temporary>
   </component>
@@ -381,7 +368,14 @@
       <workItem from="1729351363540" duration="188000" />
       <workItem from="1729351807655" duration="544000" />
       <workItem from="1729352365075" duration="258000" />
-      <workItem from="1729352628757" duration="334000" />
+      <workItem from="1729352628757" duration="405000" />
+      <workItem from="1729353047464" duration="5000" />
+      <workItem from="1729353198182" duration="374000" />
+      <workItem from="1729353624977" duration="2000" />
+      <workItem from="1729353663188" duration="1382000" />
+      <workItem from="1729355191054" duration="846000" />
+      <workItem from="1729488960034" duration="189000" />
+      <workItem from="1729489241149" duration="946000" />
     </task>
     <task id="LOCAL-00001" summary="to gradle">
       <option name="closed" value="true" />
@@ -551,7 +545,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724161873042</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="jvm 降到 8,为了更多插件的开发">
+      <option name="closed" value="true" />
+      <created>1729353006503</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1729353006503</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -585,6 +587,7 @@
     <MESSAGE value="增加默认加载依赖..." />
     <MESSAGE value="给玩家发送数据包" />
     <MESSAGE value="自定义下载 url" />
-    <option name="LAST_COMMIT_MESSAGE" value="自定义下载 url" />
+    <MESSAGE value="jvm 降到 8,为了更多插件的开发" />
+    <option name="LAST_COMMIT_MESSAGE" value="jvm 降到 8,为了更多插件的开发" />
   </component>
 </project>
