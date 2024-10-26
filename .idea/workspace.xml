@@ -9,10 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2a6a326-dfc8-4e51-a7d4-b9e513d684e4" name="Changes" comment="优化加载器">
-      <change afterPath="$PROJECT_DIR$/src/main/java/cc/mcyx/arona/core/metrics/Metrics.java" afterDir="false" />
+    <list default="true" id="c2a6a326-dfc8-4e51-a7d4-b9e513d684e4" name="Changes" comment="增加 Metrics API">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cc/mcyx/arona/core/command/ProxyCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cc/mcyx/arona/core/command/ProxyCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cc/mcyx/arona/core/plugin/AronaPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cc/mcyx/arona/core/plugin/AronaPlugin.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -379,7 +378,8 @@
       <workItem from="1729491263453" duration="761000" />
       <workItem from="1729494868723" duration="2000" />
       <workItem from="1729525768861" duration="5000" />
-      <workItem from="1729928175856" duration="51000" />
+      <workItem from="1729928175856" duration="167000" />
+      <workItem from="1729928455745" duration="136000" />
     </task>
     <task id="LOCAL-00001" summary="to gradle">
       <option name="closed" value="true" />
@@ -565,7 +565,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729490259170</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="增加 Metrics API">
+      <option name="closed" value="true" />
+      <created>1729928333912</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1729928333912</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -601,6 +609,7 @@
     <MESSAGE value="自定义下载 url" />
     <MESSAGE value="jvm 降到 8,为了更多插件的开发" />
     <MESSAGE value="优化加载器" />
-    <option name="LAST_COMMIT_MESSAGE" value="优化加载器" />
+    <MESSAGE value="增加 Metrics API" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加 Metrics API" />
   </component>
 </project>

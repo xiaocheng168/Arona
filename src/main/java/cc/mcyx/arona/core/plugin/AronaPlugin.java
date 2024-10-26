@@ -4,6 +4,7 @@ import cc.mcyx.arona.core.command.CommandCore;
 import cc.mcyx.arona.core.command.ProxyCommand;
 import cc.mcyx.arona.core.listener.ListenerCore;
 import cc.mcyx.arona.core.loader.AronaLoader;
+import cc.mcyx.arona.core.metrics.Metrics;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.HashMap;
@@ -47,6 +48,15 @@ public abstract class AronaPlugin extends JavaPlugin {
 
     public void onDisabled() {
 
+    }
+
+    /**
+     * 集成 metrics
+     * @param pluginId 插件id
+     */
+    public void metricsCall(Integer pluginId) {
+        Metrics metrics = new Metrics(this, pluginId);
+        metrics.addCustomChart(new Metrics.SimplePie("chart_id", this::getName));
     }
 
 }
