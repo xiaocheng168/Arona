@@ -56,6 +56,10 @@ public class ProxyCommand extends Command {
     public boolean execute(CommandSender commandSender, String s, String[] strings) {
         try {
             if (ObjectUtil.isNull(commandExecutorMethod)) throw new NullPointerException("commandExecutorMethod must not be null");
+            if (!commandSender.hasPermission(this.getPermission())) {
+                commandSender.sendMessage(this.getPermissionMessage());
+                return false;
+            }
             CommandExecutor commandExecutor = new CommandExecutor(s, strings, commandSender, false);
             commandExecutorMethod.invoke(commandSubscribe, commandExecutor);
             return commandExecutor.getaBoolean();

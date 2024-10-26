@@ -9,11 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2a6a326-dfc8-4e51-a7d4-b9e513d684e4" name="Changes" comment="jvm 降到 8,为了更多插件的开发">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="c2a6a326-dfc8-4e51-a7d4-b9e513d684e4" name="Changes" comment="优化加载器">
+      <change afterPath="$PROJECT_DIR$/src/main/java/cc/mcyx/arona/core/metrics/Metrics.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cc/mcyx/arona/core/loader/AronaLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cc/mcyx/arona/core/loader/AronaLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cc/mcyx/arona/core/plugin/AronaPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cc/mcyx/arona/core/plugin/AronaPlugin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cc/mcyx/arona/core/command/ProxyCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cc/mcyx/arona/core/command/ProxyCommand.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,7 +117,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.14941406&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.20809248&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
@@ -375,7 +374,12 @@
       <workItem from="1729353663188" duration="1382000" />
       <workItem from="1729355191054" duration="846000" />
       <workItem from="1729488960034" duration="189000" />
-      <workItem from="1729489241149" duration="946000" />
+      <workItem from="1729489241149" duration="1020000" />
+      <workItem from="1729490303598" duration="219000" />
+      <workItem from="1729491263453" duration="761000" />
+      <workItem from="1729494868723" duration="2000" />
+      <workItem from="1729525768861" duration="5000" />
+      <workItem from="1729928175856" duration="51000" />
     </task>
     <task id="LOCAL-00001" summary="to gradle">
       <option name="closed" value="true" />
@@ -553,7 +557,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729353006503</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="优化加载器">
+      <option name="closed" value="true" />
+      <created>1729490259170</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1729490259170</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -588,6 +600,7 @@
     <MESSAGE value="给玩家发送数据包" />
     <MESSAGE value="自定义下载 url" />
     <MESSAGE value="jvm 降到 8,为了更多插件的开发" />
-    <option name="LAST_COMMIT_MESSAGE" value="jvm 降到 8,为了更多插件的开发" />
+    <MESSAGE value="优化加载器" />
+    <option name="LAST_COMMIT_MESSAGE" value="优化加载器" />
   </component>
 </project>
