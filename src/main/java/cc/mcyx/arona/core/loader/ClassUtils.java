@@ -1,12 +1,11 @@
 package cc.mcyx.arona.core.loader;
 
 import cc.mcyx.arona.core.listener.ListenerCore;
-import cc.mcyx.arona.core.plugin.AronaPlugin;
 import cn.hutool.core.util.ClassUtil;
-import cn.hutool.core.util.ReflectUtil;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
+import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.net.URL;
 import java.util.Enumeration;
@@ -46,6 +45,10 @@ public abstract class ClassUtils {
         return classs;
     }
 
+    /**
+     * @param javaPlugin 插件
+     * @return 返回jar里
+     */
     public static Set<Class<?>> getJarClass(JavaPlugin javaPlugin) {
         LinkedHashSet<Class<?>> clazzs = new LinkedHashSet<>();
         try {
@@ -73,6 +76,41 @@ public abstract class ClassUtils {
 
         return clazzs;
     }
+
+    /**
+     * 扫描带有特定注解的类
+     * @param javaPlugin 插件
+     * @param annotation 注解
+     */
+    public static Set<Class<?>> getJarClassAnnotation(JavaPlugin javaPlugin, Class<?> annotation) {
+        LinkedHashSet<Class<?>> clazzs = new LinkedHashSet<>();
+        try {
+            Field knownCommands = JavaPlugin.class.getDeclaredField("file");
+            knownCommands.setAccessible(true);
+            File pluginFile = (File) knownCommands.get(javaPlugin);
+            JarFile jarFile = new JarFile(pluginFile);
+            Enumeration<JarEntry> entries = jarFile.entries();
+            while (entries.hasMoreElements()) {
+                JarEntry jarEntry = entries.nextElement();
+                String clazz = jarEntry.getName().replace("/", ".");
+                if (clazz.endsWith(".class")) {
+                    try {
+                        String dClass = clazz.replace(".class", "");
+                        if (dClass.startsWith("kotlin")) continue; // 过滤 kotlin
+                        Class<?> aClass = Class.forName(dClass, false, javaPlugin.getClass().getClassLoader());
+                        boolean isListener = aClass.isAnnotationPresent(cc.mcyx.arona.core.listener.annotation.Listener.class);
+                        if (isListener) clazzs.add(Class.forName(dClass));
+                    } catch (Throwable ignored) {
+                    }
+                }
+            }
+        } catch (Throwable e) {
+            throw new RuntimeException(e);
+        }
+
+        return clazzs;
+    }
+
 
 
 }
