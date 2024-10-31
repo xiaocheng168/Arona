@@ -60,17 +60,17 @@ public class LibInfo {
         if (type == 2) downloadURL = this.url;
         try {
             URL url = new URL(downloadURL);
-            URLConnection urlConnection = url.openConnection();
-            HttpURLConnection connection = (HttpURLConnection) urlConnection;
-            connection.setReadTimeout(10000);
-            InputStream inputStream = connection.getInputStream();
-            byte[] bytes = new byte[1024];
             File jar = new File(AronaLoader.ARONA_LIB_DIR, new File(url.getFile()).getName());
             // 如果已经有这个jar了，直接加载
             if (jar.isFile()) {
                 AronaLoader.loadJar(jar.toURI().toURL());
                 return;
             }
+            URLConnection urlConnection = url.openConnection();
+            HttpURLConnection connection = (HttpURLConnection) urlConnection;
+            connection.setReadTimeout(10000);
+            InputStream inputStream = connection.getInputStream();
+            byte[] bytes = new byte[1024];
             FileOutputStream fileOutputStream = new FileOutputStream(jar);
             int read;
             while ((read = inputStream.read(bytes)) != -1) {
