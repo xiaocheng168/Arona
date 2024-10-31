@@ -59,5 +59,15 @@ public abstract class AronaPlugin extends JavaPlugin {
         metrics.addCustomChart(new Metrics.SimplePie("chart_id", this::getName));
     }
 
+    /**
+     * 集成 metrics
+     * @param pluginId 插件id
+     */
+    public Metrics metrics(Integer pluginId) {
+        Metrics metrics = new Metrics(this, pluginId);
+        metrics.addCustomChart(new Metrics.SimplePie("chart_id", this::getName));
+        return metrics;
+    }
+
 }
 
