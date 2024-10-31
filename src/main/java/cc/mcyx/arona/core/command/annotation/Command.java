@@ -6,7 +6,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.RUNTIME)
-@Target({ElementType.TYPE, ElementType.PACKAGE,ElementType.METHOD})
+@Target({ElementType.FIELD, ElementType.TYPE, ElementType.PACKAGE,ElementType.METHOD})
 public @interface Command {
     String value();
 

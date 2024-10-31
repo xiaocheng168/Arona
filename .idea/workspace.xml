@@ -9,9 +9,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2a6a326-dfc8-4e51-a7d4-b9e513d684e4" name="Changes" comment="增加 Metrics API">
+    <list default="true" id="c2a6a326-dfc8-4e51-a7d4-b9e513d684e4" name="Changes" comment="优化监听器结构">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cc/mcyx/arona/core/plugin/AronaPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cc/mcyx/arona/core/plugin/AronaPlugin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cc/mcyx/arona/core/bean/ObjBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cc/mcyx/arona/core/bean/ObjBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cc/mcyx/arona/core/command/BaseCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cc/mcyx/arona/core/command/BaseCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cc/mcyx/arona/core/command/CommandCore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cc/mcyx/arona/core/command/CommandCore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cc/mcyx/arona/core/command/ProxyCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cc/mcyx/arona/core/command/ProxyCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cc/mcyx/arona/core/command/annotation/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cc/mcyx/arona/core/command/annotation/Command.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cc/mcyx/arona/core/command/annotation/CommandEvent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cc/mcyx/arona/core/command/event/CommandExecutor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cc/mcyx/arona/core/command/event/CommandTabExecutor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cc/mcyx/arona/core/loader/ClassUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cc/mcyx/arona/core/loader/ClassUtils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,8 +78,10 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Kotlin File" />
+        <option value="Kotlin Object" />
         <option value="Kotlin Class" />
         <option value="Class" />
+        <option value="AnnotationType" />
       </list>
     </option>
   </component>
@@ -93,41 +103,42 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Gradle.Arona [assemble].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Arona [build].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Arona [classes].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Arona [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Arona [jar].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Arona [shadowJar].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Arona:Arona-GUI [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Build Arona.executor&quot;: &quot;Run&quot;,
-    &quot;JAR Application.1.20.1 DEBUG.executor&quot;: &quot;Run&quot;,
-    &quot;JAR Application.Cat 1.12.2 DEBUG.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/Desktop/Desktop/MinecraftServers/CatServer1.12.2/catserver.jar&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.14941406&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.20809248&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.Arona [:ObjBean.main()].executor": "Run",
+    "Gradle.Arona [assemble].executor": "Run",
+    "Gradle.Arona [build].executor": "Run",
+    "Gradle.Arona [classes].executor": "Run",
+    "Gradle.Arona [clean].executor": "Run",
+    "Gradle.Arona [jar].executor": "Run",
+    "Gradle.Arona [shadowJar].executor": "Run",
+    "Gradle.Arona:Arona-GUI [clean].executor": "Run",
+    "Gradle.Build Arona.executor": "Run",
+    "JAR Application.1.20.1 DEBUG.executor": "Debug",
+    "JAR Application.Cat 1.12.2 DEBUG.executor": "Debug",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "E:/Desktop/Desktop/MinecraftServers/CatServer1.12.2/catserver.jar",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.14941406",
+    "project.structure.side.proportion": "0.20809248",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;kotlin-gradle-user-dirs&quot;: [
-      &quot;C:\\Users\\35133\\.gradle&quot;
+  "keyToStringList": {
+    "kotlin-gradle-user-dirs": [
+      "C:\\Users\\35133\\.gradle"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\Desktop\Desktop\Arona\Arona-NMS\src\main\kotlin\cc\mcyx\arona\nms" />
@@ -151,95 +162,7 @@
       <command value="gradle clean" />
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.Arona [clean]">
-    <configuration name="Arona [classes]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="classes" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="Arona [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="clean" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="Arona [jar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="jar" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="Arona [shadowJar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="shadowJar" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="JAR Application.Cat 1.12.2 DEBUG">
     <configuration name="1.20.1 DEBUG" type="JarApplication">
       <option name="JAR_PATH" value="$PROJECT_DIR$/../MinecraftServers/spigot1.20.1/spigot-1.20.1.jar" />
       <option name="PROGRAM_PARAMETERS" value="nogui" />
@@ -266,21 +189,9 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Gradle.Arona [classes]" />
-      <item itemvalue="Gradle.Arona [clean]" />
-      <item itemvalue="Gradle.Arona [jar]" />
-      <item itemvalue="Gradle.Arona [shadowJar]" />
       <item itemvalue="JAR Application.1.20.1 DEBUG" />
       <item itemvalue="JAR Application.Cat 1.12.2 DEBUG" />
     </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Gradle.Arona [clean]" />
-        <item itemvalue="Gradle.Arona [shadowJar]" />
-        <item itemvalue="Gradle.Arona [jar]" />
-        <item itemvalue="Gradle.Arona [classes]" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -379,7 +290,10 @@
       <workItem from="1729494868723" duration="2000" />
       <workItem from="1729525768861" duration="5000" />
       <workItem from="1729928175856" duration="167000" />
-      <workItem from="1729928455745" duration="136000" />
+      <workItem from="1729928455745" duration="157000" />
+      <workItem from="1730016487200" duration="631000" />
+      <workItem from="1730092717310" duration="21000" />
+      <workItem from="1730360522077" duration="15291000" />
     </task>
     <task id="LOCAL-00001" summary="to gradle">
       <option name="closed" value="true" />
@@ -573,7 +487,39 @@
       <option name="project" value="LOCAL" />
       <updated>1729928333912</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="集成 metrics">
+      <option name="closed" value="true" />
+      <created>1729928601804</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1729928601804</updated>
+    </task>
+    <task id="LOCAL-00026" summary="新增可返回 Metrics 对象方法">
+      <option name="closed" value="true" />
+      <created>1730361034309</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1730361034309</updated>
+    </task>
+    <task id="LOCAL-00027" summary="优化加载lib">
+      <option name="closed" value="true" />
+      <created>1730361064024</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1730361064024</updated>
+    </task>
+    <task id="LOCAL-00028" summary="优化监听器结构">
+      <option name="closed" value="true" />
+      <created>1730367872875</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1730367872875</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -610,6 +556,10 @@
     <MESSAGE value="jvm 降到 8,为了更多插件的开发" />
     <MESSAGE value="优化加载器" />
     <MESSAGE value="增加 Metrics API" />
-    <option name="LAST_COMMIT_MESSAGE" value="增加 Metrics API" />
+    <MESSAGE value="集成 metrics" />
+    <MESSAGE value="新增可返回 Metrics 对象方法" />
+    <MESSAGE value="优化加载lib" />
+    <MESSAGE value="优化监听器结构" />
+    <option name="LAST_COMMIT_MESSAGE" value="优化监听器结构" />
   </component>
 </project>

@@ -13,15 +13,8 @@ import java.util.*;
 
 public abstract class CommandCore {
     public static void autoRegistrationCommand(AronaPlugin aronaPlugin) {
-        Set<Class<?>> pluginLoadClass = ClassUtils.getPluginLoadClass(aronaPlugin);
-        for (Class<?> loadClass : pluginLoadClass) {
-            // 必须有注解
-            if (loadClass.getAnnotations().length > 0) {
-                Command annotation = loadClass.getAnnotation(Command.class);
-                // 注册命令
-                if (ObjectUtil.isNotNull(annotation)) registerCommand(loadClass, aronaPlugin);
-            }
-        }
+        Set<Class<?>> commandClass = ClassUtils.getJarClassAnnotation(aronaPlugin, Command.class);
+        for (Class<?> bc : commandClass) registerCommand(bc, aronaPlugin);
     }
 
     /**
@@ -43,6 +36,7 @@ public abstract class CommandCore {
 
     /**
      * 获取 Bukkit 命令表
+     *
      * @return 返回 Bukkit 命令处理类
      */
     private static SimpleCommandMap getCommandMap() {
@@ -70,6 +64,7 @@ public abstract class CommandCore {
 
     /**
      * 取消注册插件的所有命令
+     *
      * @param aronaPlugin 插件实例
      */
     public static void unRegisterPluginCommand(AronaPlugin aronaPlugin) {

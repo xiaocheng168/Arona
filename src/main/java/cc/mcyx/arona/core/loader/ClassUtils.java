@@ -1,5 +1,6 @@
 package cc.mcyx.arona.core.loader;
 
+import cc.mcyx.arona.core.command.annotation.Command;
 import cc.mcyx.arona.core.listener.ListenerCore;
 import cn.hutool.core.util.ClassUtil;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -82,7 +83,7 @@ public abstract class ClassUtils {
      * @param javaPlugin 插件
      * @param annotation 注解
      */
-    public static Set<Class<?>> getJarClassAnnotation(JavaPlugin javaPlugin, Class<?> annotation) {
+    public static Set<Class<?>> getJarClassAnnotation(JavaPlugin javaPlugin, Class<? extends Annotation> annotation) {
         LinkedHashSet<Class<?>> clazzs = new LinkedHashSet<>();
         try {
             Field knownCommands = JavaPlugin.class.getDeclaredField("file");
@@ -98,7 +99,7 @@ public abstract class ClassUtils {
                         String dClass = clazz.replace(".class", "");
                         if (dClass.startsWith("kotlin")) continue; // 过滤 kotlin
                         Class<?> aClass = Class.forName(dClass, false, javaPlugin.getClass().getClassLoader());
-                        boolean isListener = aClass.isAnnotationPresent(cc.mcyx.arona.core.listener.annotation.Listener.class);
+                        boolean isListener = aClass.isAnnotationPresent(annotation);
                         if (isListener) clazzs.add(Class.forName(dClass));
                     } catch (Throwable ignored) {
                     }

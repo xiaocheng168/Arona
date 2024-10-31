@@ -1,82 +1,64 @@
 package cc.mcyx.arona.core.command;
 
-import cc.mcyx.arona.core.command.annotation.CommandEvent;
-import cc.mcyx.arona.core.command.event.CommandExecutor;
-import cc.mcyx.arona.core.command.event.CommandTabExecutor;
+import cc.mcyx.arona.core.bean.ObjBean;
+import cc.mcyx.arona.core.command.annotation.Command;
 import cn.hutool.core.util.ObjectUtil;
-import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.lang.reflect.Parameter;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.LinkedList;
-import java.util.List;
+import java.lang.reflect.Field;
+import java.util.*;
 
-public class ProxyCommand extends Command {
+public class ProxyCommand extends BaseCommand {
     // 命令订阅类
-    private final Object commandSubscribe;
-    // 命令触发方法
-    private Method commandExecutorMethod;
-    // 命令Tab触发方法
-    private Method commandTabExecutorMethod;
+    private final BaseCommand bc;
     // 子命令
-    private final List<ProxyCommand> subCommandList = Collections.emptyList();
+    private final HashMap<String, ProxyCommand> subCommandList = new LinkedHashMap<>();
 
     protected ProxyCommand(String name, Class<?> clazz, cc.mcyx.arona.core.command.annotation.Command command) {
         super(name);
         try {
-            this.commandSubscribe = clazz.newInstance();
+            this.bc = (BaseCommand) ObjBean.getBean(clazz);
+            this.bc.setName(this.getName());
             this.setDescription(command.description());
             this.setPermission(command.permission());
             this.setPermissionMessage(command.noPermission());
             this.setAliases(Arrays.asList(command.aliases()));
-            for (Method declaredMethod : this.commandSubscribe.getClass().getDeclaredMethods()) {
-                CommandEvent annotation = declaredMethod.getAnnotation(CommandEvent.class);
-                if (ObjectUtil.isNotNull(annotation) && declaredMethod.getParameterCount() == 1) {
-                    Parameter parameter = declaredMethod.getParameters()[0];
-                    if (parameter.getType() == CommandExecutor.class) {
-                        this.commandExecutorMethod = declaredMethod;
-                        this.commandExecutorMethod.setAccessible(true);
-                    }
-                    if (parameter.getType() == CommandTabExecutor.class) {
-                        this.commandTabExecutorMethod = declaredMethod;
-                        this.commandTabExecutorMethod.setAccessible(true);
-                    }
-                }
-            }
+            this.scanSubCommand();
         } catch (Throwable e) {
             throw new RuntimeException(e);
         }
     }
 
-    @Override
-    public boolean execute(CommandSender commandSender, String s, String[] strings) {
-        try {
-            if (ObjectUtil.isNull(commandExecutorMethod)) throw new NullPointerException("commandExecutorMethod must not be null");
-            if (!commandSender.hasPermission(this.getPermission())) {
-                commandSender.sendMessage(this.getPermissionMessage());
-                return false;
+    /**
+     * 递归扫描子命令
+     */
+    public void scanSubCommand() {
+        for (Field declaredField : bc.getClass().getDeclaredFields()) {
+            System.out.println(declaredField);
+            Command command = declaredField.getDeclaredAnnotation(Command.class);
+            if (ObjectUtil.isNotNull(command)) {
+                String name = command.value();
+                Class<?> type = declaredField.getType();
+                subCommandList.put(name, new ProxyCommand(name, type, command));
             }
-            CommandExecutor commandExecutor = new CommandExecutor(s, strings, commandSender, false);
-            commandExecutorMethod.invoke(commandSubscribe, commandExecutor);
-            return commandExecutor.getaBoolean();
-        } catch (IllegalAccessException | InvocationTargetException | NullPointerException e) {
-            return false;
         }
     }
 
     @Override
-    public List<String> tabComplete(CommandSender sender, String alias, String[] args) throws IllegalArgumentException {
-        try {
-            if (ObjectUtil.isNull(commandTabExecutorMethod)) throw new NullPointerException("commandTabExecutorMethod must not be null");
-            CommandTabExecutor commandTabExecutor = new CommandTabExecutor(sender, args, new LinkedList<>());
-            commandTabExecutorMethod.invoke(commandSubscribe, commandTabExecutor);
-            return commandTabExecutor.getCallbacks();
-        } catch (IllegalAccessException | InvocationTargetException | NullPointerException e) {
-            return super.tabComplete(sender, alias, args);
+    public boolean execute(CommandSender commandSender, String s, String[] strings) {
+        if (!commandSender.hasPermission(this.getPermission())) {
+            commandSender.sendMessage(this.getPermissionMessage());
+            return false;
         }
+        return this.bc.execute(commandSender, s, strings);
+    }
+
+    @Override
+    public List<String> tabComplete(CommandSender sender, String alias, String[] args) throws IllegalArgumentException {
+        return this.bc.tabComplete(sender, alias, args);
+    }
+
+    public List<String> subCommandList() {
+        return new ArrayList<>(this.subCommandList.keySet());
     }
 }
